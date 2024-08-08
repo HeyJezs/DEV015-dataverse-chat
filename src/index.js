@@ -1,5 +1,5 @@
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
-
+//import home.js from './views/home.js';
 /*
 import Example from './views/Example.js';
 
