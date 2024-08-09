@@ -1,6 +1,6 @@
 import { setRootEl, setRoutes, onURLChange } from './router.js';
-import Home from './views/Home.js';
-import ChatGroup from './views/ChatGroup.js';
+import Home from './views/home.js';
+import ChatGroup from './views/chatGroup.js';
 import ErrorView from './views/error.js';
 
 // Establecer el elemento raíz
@@ -8,7 +8,7 @@ setRootEl(document.getElementById('root'));
 // Definir las rutas y sus vistas correspondientes
 setRoutes({
     '/': Home,
-    '/chatgroup': Chatgroup,
+    '/chatgroup': ChatGroup,
     '/error': ErrorView
 });
 // Manejar la navegación mediante clics en los enlaces
