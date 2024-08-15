@@ -1,0 +1,181 @@
+*{
+    background-color: #C49899;
+  }
+  header{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #875D5E;
+    padding: 10px;
+    margin: 10px;
+  }
+  header h1{
+    background-color: #875D5E;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  main h2{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    justify-content: center;
+    text-align: center;
+  }
+  .principal{
+    width: 100%;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: 0% 20%;
+  
+  }
+  footer{
+    display: flex;
+    justify-content: left;
+    background-color: #A28B8C;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  footer p{
+    background-color: #A28B8C;
+  }
+  /* BARRA DE INTERACCION */
+  form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los elementos */
+  }
+  select {
+    flex: 1;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  button[data-testid="button-clear"] {
+    font-size: medium;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  #computeStatsButton {
+    font-size: medium;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+    
+  /* DISEño TARJETAS */
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+  }
+  .card-container{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin: 10px;
+    flex: 0 1 calc(25% - 20px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s;
+    padding: 10px;
+  }
+  
+  .card-container * {
+    background-color: transparent;
+  }
+  
+  .card-container:hover{
+    transform: scale(1.05);
+  }
+  
+  .card-container img{
+    max-width: 90%;
+    border-radius: 8px;
+    margin: auto;
+    display: block;
+  }
+  .card-container .card-title {
+    font-weight: bold;
+    font-size: large;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .card-container .short-description {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .card-container [itemprop="alcoholContent"],
+  .card-container [itemprop="calorias"],
+  .card-container [itemprop="tiempoDePreparacion"] {
+      font-weight: bold;
+  }
+  
+  /*ESTADISTICAS*/
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  #computeStatsButton {
+    padding: 10px 20px;
+    font-size: medium;
+  }
+  
+  #statsResult {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .stat-box {
+    flex: 1;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .stat-box.result {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #333;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /*DISEñO RESPONSIVE*/
+  @media screen and (min-width: 768px) {
+    .card {
+      flex: 0 1 calc(50% - 20px); /* Dos tarjetas por fila en tablets */
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .card {
+      flex: 0 1 calc(25% - 20px); /* tres tarjetas por fila en escritorio */
+    }
+  }
+  @media screen and (max-width: 600px) {
+    form {
+        flex-direction: column;
+    }
+  }
