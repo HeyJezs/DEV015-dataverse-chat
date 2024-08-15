@@ -1,4 +1,4 @@
-export default [
+const bebidas = [
     {
       "id": "mojitoRefrescante001",
       "name": "Mojito Refrescante",
@@ -312,3 +312,11 @@ export default [
       "extraInfo": "¡Decora con rodajas de fresa y una ramita de menta para un toque de frescura!"
     },
   ];
+
+// Función para obtener una bebida por su ID
+export function getBebidaById(id) {
+  return bebidas.find(bebida => bebida.id === id);
+}
+
+// Exportar el dataset por defecto
+export default bebidas;
