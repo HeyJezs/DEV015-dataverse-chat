@@ -2,6 +2,29 @@ import  dataset from '../data/dataset.js';
 import { filterData } from '../lib/dataFunctions.js';
 
 export default function Home (){
+  const tit = document.createElement('h1');
+  tit.innerHTML = `¿Qué buscas hoy?`;
+  const bot = document.createElement('form')
+  bot.innerHTML = `
+        <label for="filter"></label>
+        <select data-testid="select-filter" id="filter" name="propiedades">
+          <option value="">Filtrar por tiempo:</option>
+          <option value="5 minutos">5 minutos</option>
+          <option value="7 minutos">7 minutos</option>
+          <option value="10 minutos">10 minutos</option>
+        </select>
+        
+        <label for="sort"></label>
+        <select data-testid="select-sort" id="sort" name="alf">
+          <option value="">Ordenar por:</option>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+
+
+        <button data-testid="button-clear">Limpiar</button>
+
+`
   const ul = document.createElement('ul'); //creamos elemento ul
   ul.classList.add('flex-container'); //clase para flexbox
   const liarray = dataset.map(item => { // iteramos sobre cada elemento de la data
@@ -30,6 +53,12 @@ export default function Home (){
   })
   ul.append(...liarray)
   console.log(ul);
-  return ul;
+
+  const esthom = document.createElement('div');
+  esthom.appendChild(tit);
+  esthom.appendChild(bot);
+  esthom.appendChild(ul);
+
+  return esthom;
 };
 
