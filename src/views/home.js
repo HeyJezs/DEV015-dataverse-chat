@@ -48,11 +48,11 @@ export default function Home (){
             <dd>${item.facts.tiempoDePreparacion}</dd>
         </dl>
     </div>`;
-    console.log(li);
+    //console.log(li);
     return li
   })
   ul.append(...liarray)
-  console.log(ul);
+  //console.log(ul);
 
   const esthom = document.createElement('div');
   esthom.appendChild(tit);
