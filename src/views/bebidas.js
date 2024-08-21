@@ -1,3 +1,4 @@
+import { communicateWithOpenAI } from '../lib/openAIApi.js';
 import { getBebidaById } from '../data/dataset.js';
 
 export default function BebidasView(params) {
