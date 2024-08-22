@@ -8,6 +8,12 @@ export default function BebidasView(params) {
     // Obtener el ID desde los parámetros o search params
     const bebidaId = params.id || new URLSearchParams(window.location.search).get('id');
     
+    // Verificar que se ha obtenido un ID válido
+    if (!bebidaId) {
+        viewEl.innerHTML = `<p>ID de bebida no especificado.</p>`;
+        return viewEl;
+    }
+
     // Obtener la bebida del conjunto de datos
     const bebida = getBebidaById(bebidaId);
     
@@ -28,14 +34,35 @@ export default function BebidasView(params) {
         </ul>
         <p>${bebida.extraInfo}</p>
         <button id="chatButton">Chatear sobre esta bebida</button>
+        <div id="chatOutput"></div>
     `;
 
     // Agregar funcionalidad al botón de chat
     const chatButton = viewEl.querySelector('#chatButton');
-    chatButton.addEventListener('click', () => {
-        alert(`Chateando sobre ${bebida.name}`);
-        // Aquí puedes agregar la lógica para el chat
-    });
+    chatButton.addEventListener('click', async () => {
+        const userMessage = prompt('Escribe tu mensaje:');
+    
+    if (userMessage) {
+      // Mostrar el mensaje del usuario
+      const userMessageEl = document.createElement('p');
+      userMessageEl.textContent = `Tú: ${userMessage}`;
+      const chatOutput = viewEl.querySelector('#chatOutput');
+      chatOutput.appendChild(userMessageEl);
+      
+      try {
+        // Llamar a la función communicateWithOpenAI con el mensaje del usuario
+        const response = await communicateWithOpenAI([{ role: "user", content: userMessage }]);
+        // Mostrar la respuesta del bot
+        const botMessageEl = document.createElement('p');
+        botMessageEl.textContent = `${bebida.name}: ${response}`;
+        chatOutput.appendChild(botMessageEl);
+      } catch (error) {
+        const botMessageEl = document.createElement('p');
+        botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        chatOutput.appendChild(botMessageEl);
+      }
+    }
+  });
 
-    return viewEl;
+  return viewEl;
 }

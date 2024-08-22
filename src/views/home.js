@@ -24,8 +24,8 @@ export default function Home (){
 
 
         <button data-testid="button-clear">Limpiar</button>
+  `
 
-`
   const img = document.createElement('div')
   img.innerHTML= `<img class="principal" src="./imagen/coctel.jpg" alt="Descripción de la imagen">`
 
@@ -37,7 +37,8 @@ export default function Home (){
     li.setAttribute('itemscope', '');
     li.setAttribute('itemtype', 'http://schema.org/Product'); //agregamos el itemtype
     li.setAttribute('itemprop', 'item');
-    li.innerHTML= `<div class="card-container">
+    li.innerHTML = `
+      <div class="card-container">
         <img src="${item.imageUrl}" alt="${item.name}" itemprop="image">
         <dl itemscope itemtype="http://schema.org/Product">
             <dt itemprop="name"></dt>
@@ -51,12 +52,13 @@ export default function Home (){
             <dt itemprop="tiempoDePreparacion">Tiempo de preparación:</dt>
             <dd>${item.facts.tiempoDePreparacion}</dd>
         </dl>
-    </div>`;
-    //console.log(li);
-    return li
+        <a href="/bebidas?id=${item.id}" class="chat-button">Chatear sobre esta bebida</a>
+      </div>
+    `;
+
+    return li;
   })
   ul.append(...liarray)
-  //console.log(ul);
 
   const esthom = document.createElement('div');
   esthom.appendChild(tit);
