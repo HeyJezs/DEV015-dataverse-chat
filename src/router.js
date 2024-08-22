@@ -28,10 +28,10 @@ export function queryStringToObject(queryString) {
 }
 
 // Renderiza la vista basada en la URL actual
-export function renderView(path) {
+export function renderView(path, params) {
     const view = routes[path] || routes['/error'];
     rootElement.innerHTML = '';
-    rootElement.appendChild(view());
+    rootElement.appendChild(view(params));
 }
 
 // Maneja el cambio de URL
@@ -41,7 +41,5 @@ export function onURLChange() {
     const params = queryStringToObject(queryString); // Convierte la cadena de consulta en un objeto
     
     // Asume que cada ruta puede ser una función que acepta parámetros
-    const view = routes[path] || routes['/error'];
-    rootElement.innerHTML = '';
-    rootElement.appendChild(view(params)); // Pasa los parámetros a la vista
+    renderView(path, params); // Pasa los parámetros a la vista
 }

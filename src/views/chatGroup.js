@@ -1,35 +1,61 @@
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
+import bebidas from "../data/dataset.js";
+
 export default function ChatGroup() {
 
   const viewEl = document.createElement('div');
-  //Modificariamos el contenido del nuevo elemento con lo realizado en Dataverse
+  const cocktailListHTML = bebidas.map(bebida => `<li>${bebida.name}</li>`).join('');
+
   viewEl.innerHTML = `
     <h1>Chat grupal</h1>
-      <div class="chat-group">
+    <div class="chat-group">
       <h2>Conversa con los cócteles</h2>
-        <form id="chatForm">
-            <input id="chatInput" placeholder="Escribe"></input>
-              <br>
-                <button type="submit">Enviar</button>
-     
-        </form>
-       </div>
+      <ul id="cocktailList">
+        ${cocktailListHTML}
+      </ul>
+      <div id="chatOutput"></div>
+      <form id="chatForm">
+        <input id="chatInput" placeholder="Escribe"></input>
+        <br>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
   `;
+
   const chatForm = viewEl.querySelector('#chatForm');
   const chatInput = viewEl.querySelector('#chatInput');
+  const chatOutput = viewEl.querySelector('#chatOutput');
 
   // Añade un listener para el envío del formulario
-  chatForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+  chatForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+  
+    const userMessage = chatInput.value;
+  
+    // Mostrar el mensaje del usuario en el chat
+    const userMessageEl = document.createElement('p');
+    userMessageEl.textContent = `Tú: ${userMessage}`;
+    chatOutput.appendChild(userMessageEl);
+  
+    // Iterar sobre todas las bebidas y enviar el mensaje
+    for (const bebida of bebidas) {
+      try {
+        const response = await communicateWithOpenAI([{ role: "user", content: userMessage }], bebida);
 
-    const userMessage = chatInput.value; // Captura el valor del input
+        // Mostrar la respuesta en el chat
+        const botMessageEl = document.createElement('p');
+        botMessageEl.textContent = `${bebida.name}: ${response}`;
+        chatOutput.appendChild(botMessageEl);
+      } catch (error) {
+        const botMessageEl = document.createElement('p');
+        botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        chatOutput.appendChild(botMessageEl);
+      }
+    }
 
-    // Llama a la función communicateWithOpenAI con el mensaje del usuario
-    communicateWithOpenAI([{ role: "user", content: userMessage }]);
-
-    // Limpia el input después de enviar
+    // Limpiar el input después de enviar
     chatInput.value = '';
   });
-  console.log(viewEl);
+  
   return viewEl;
 }
