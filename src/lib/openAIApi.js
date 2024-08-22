@@ -1,11 +1,9 @@
-//import { getApiKey } from './apiKey.js';
 import { getApiKey, setApiKey } from './apiKey.js';
-//communicateWithOpenAI sugerencia nombre de funcion
 
-export const communicateWithOpenAI = (messages) => {
+export const communicateWithOpenAI = (messages, bebida) => {
    const apiKey = getApiKey();
 
-   fetch('https://api.openai.com/v1/chat/completions', {
+   return fetch('https://api.openai.com/v1/chat/completions', {
      method: 'POST',
      headers:{
       "Content-Type": "application/json",
@@ -13,17 +11,29 @@ export const communicateWithOpenAI = (messages) => {
      },
      body:JSON.stringify({
       "model": "gpt-4o-mini",
-      "messages": messages,
+      "messages": [
+         { role: "system", content: `Eres el cóctel ${bebida.name}. Responde como si fueras ${bebida.name}.` },
+         ...messages
+       ],
       "temperature": 0.7
      })
    })
    .then(response => {
-      return response.json()
+      if (!response.ok) {
+         throw new Error('Error en la respuesta de la API: ' + response.statusText);
+      }
+      return response.json();
    })
-   .then(data =>{
-      console.log(data)
+   .then(data => {
+      // Verificar si 'choices' existe y no está vacío
+      if (data.choices && data.choices.length > 0) {
+         return data.choices[0].message.content;
+      } else {
+         throw new Error('No se encontraron respuestas en la respuesta de la API');
+      }
    })
-   .catch(error =>{
-      console.log(error);
-   })
+   .catch(error => {
+      console.error('Error al comunicarse con la API:', error);
+      return 'Hubo un error al obtener la respuesta. Inténtalo de nuevo más tarde.';
+   });
 };
