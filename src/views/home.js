@@ -4,6 +4,7 @@ import { filterData } from '../lib/dataFunctions.js';
 export default function Home (){
   const tit = document.createElement('h1');
   tit.innerHTML = `¿Qué buscas hoy?`;
+  tit.classList.add('subtitulo')
   const bot = document.createElement('form')
   bot.innerHTML = `
         <label for="filter"></label>
@@ -23,7 +24,10 @@ export default function Home (){
 
 
         <button data-testid="button-clear">Limpiar</button>
-  `;
+  `
+
+  const img = document.createElement('div')
+  img.innerHTML= `<img class="principal" src="./imagen/coctel.jpg" alt="Descripción de la imagen">`
 
   const ul = document.createElement('ul'); //creamos elemento ul
   ul.classList.add('flex-container'); //clase para flexbox
@@ -59,6 +63,7 @@ export default function Home (){
   const esthom = document.createElement('div');
   esthom.appendChild(tit);
   esthom.appendChild(bot);
+  esthom.appendChild(img);
   esthom.appendChild(ul);
 
   return esthom;
