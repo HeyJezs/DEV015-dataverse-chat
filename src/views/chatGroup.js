@@ -7,9 +7,9 @@ export default function ChatGroup() {
   const cocktailListHTML = bebidas.map(bebida => `<li>${bebida.name}</li>`).join('');
 
   viewEl.innerHTML = `
-    <h1>Chat grupal</h1>
+    <h1 class="h1-group">Chat grupal 👥</h1>
     <div class="chat-group">
-      <h2>Conversa con los cócteles</h2>
+      <h2 class="h2-group">Conversa con los cócteles</h2>
       <ul id="cocktailList">
         ${cocktailListHTML}
       </ul>
@@ -31,10 +31,14 @@ export default function ChatGroup() {
     event.preventDefault();
   
     const userMessage = chatInput.value;
+
+    const cocktailList = viewEl.querySelector('#cocktailList');
+    cocktailList.classList.add('hidden');
   
     // Mostrar el mensaje del usuario en el chat
     const userMessageEl = document.createElement('p');
     userMessageEl.textContent = `Tú: ${userMessage}`;
+    userMessageEl.classList.add('user-message');
     chatOutput.appendChild(userMessageEl);
   
     // Iterar sobre todas las bebidas y enviar el mensaje
@@ -45,17 +49,23 @@ export default function ChatGroup() {
         // Mostrar la respuesta en el chat
         const botMessageEl = document.createElement('p');
         botMessageEl.textContent = `${bebida.name}: ${response}`;
+        botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
         const botMessageEl = document.createElement('p');
         botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       }
     }
 
     // Limpiar el input después de enviar
     chatInput.value = '';
-  });
+ 
+  // Desplazar el chat hacia el último mensaje
+  chatOutput.scrollTop = chatOutput.scrollHeight;
+});
+
   
   return viewEl;
 }
