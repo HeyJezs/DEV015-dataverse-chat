@@ -33,34 +33,46 @@ export default function BebidasView(params) {
             <li>Tiempo de Preparación: ${bebida.facts.tiempoDePreparacion}</li>
         </ul>
         <p>${bebida.extraInfo}</p>
-        <button id="chatButton">Chatear sobre esta bebida</button>
         <div id="chatOutput"></div>
+        <form id="chatForm">
+            <input id="chatInput" placeholder="Escribe tu mensaje..."></input>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
     `;
 
-    // Agregar funcionalidad al botón de chat
-    const chatButton = viewEl.querySelector('#chatButton');
-    chatButton.addEventListener('click', async () => {
-        const userMessage = prompt('Escribe tu mensaje:');
+    // Agregar funcionalidad al formulario de chat
+    const chatForm = viewEl.querySelector('#chatForm');
+    const chatInput = viewEl.querySelector('#chatInput');
+    const chatOutput = viewEl.querySelector('#chatOutput');
+
+    chatForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        const userMessage = chatInput.value;
     
     if (userMessage) {
-      // Mostrar el mensaje del usuario
+      // Mostrar el mensaje del usuario en el chat
       const userMessageEl = document.createElement('p');
       userMessageEl.textContent = `Tú: ${userMessage}`;
-      const chatOutput = viewEl.querySelector('#chatOutput');
       chatOutput.appendChild(userMessageEl);
       
       try {
-        // Llamar a la función communicateWithOpenAI con el mensaje del usuario
-        const response = await communicateWithOpenAI([{ role: "user", content: userMessage }]);
+        // Llamar a la función communicateWithOpenAI con el mensaje del usuario y la bebida
+        const response = await communicateWithOpenAI([{ role: "user", content: userMessage }], bebida);
+        
         // Mostrar la respuesta del bot
         const botMessageEl = document.createElement('p');
         botMessageEl.textContent = `${bebida.name}: ${response}`;
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
         const botMessageEl = document.createElement('p');
-        botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        errorbotMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
         chatOutput.appendChild(botMessageEl);
       }
+
+      // Limpiar el input después de enviar
+      chatInput.value = '';
     }
   });
 

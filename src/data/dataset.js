@@ -9,6 +9,9 @@ const bebidas = [
         "alcoholContent": "7.5% ABV",
         "calorias": "120",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Ron",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Sirve con mucho hielo y una ramita de menta fresca para darle un toque aún más especial!"
     },
@@ -21,7 +24,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "8% ABV",
         "calorias": "180",
-        "tiempoDePreparacion": "7 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ron",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con una rodaja de piña y un paraguas de cóctel para un toque aún más festivo!"
     },
@@ -35,6 +41,9 @@ const bebidas = [
         "alcoholContent": "10% ABV",
         "calorias": "150",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Tequila",
+        "dificultad": "Fácil",
+        "sabor": "Amargo"
       },
       "extraInfo": "¡Sirve en un vaso escarchado con sal y una rodaja de lima para una presentación espectacular!"
     },
@@ -47,7 +56,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "8.5% ABV",
         "calorias": "140",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ron",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con una fresa en el borde del vaso para un toque de color y frescura adicional!"
     },
@@ -61,6 +73,10 @@ const bebidas = [
         "alcoholContent": "9% ABV",
         "calorias": "160",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Aguardiente",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
+        
       },
       "extraInfo": "¡Sirve en un vaso corto con mucho hielo y disfruta del sabor tropical de Brasil!"
     },
@@ -74,6 +90,9 @@ const bebidas = [
         "alcoholContent": "7% ABV",
         "calorias": "180",
         "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Vino",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con rodajas de naranja, limón y trozos de frutas para una presentación impresionante!"
     },
@@ -86,7 +105,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "160",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Whisky",
+        "dificultad": "Media",
+        "sabor": "Herbal"
       },
       "extraInfo": "¡Sirve en un vaso de julepe de plata con mucho hielo triturado y una ramita de menta para una presentación elegante!"
     },
@@ -100,6 +122,9 @@ const bebidas = [
         "alcoholContent": "9% ABV",
         "calorias": "150",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Vodka",
+        "dificultad": "Fácil",
+        "sabor": "Picante"
       },
       "extraInfo": "¡Decora con una rodaja de lima y una ramita de menta para una presentación impresionante!"
     },
@@ -112,7 +137,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "170",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Whisky",
+        "dificultad": "Media",
+        "sabor": "Amargo"
       },
       "extraInfo": "¡Decora con una cereza maraschino y una rodaja de limón para un toque de color!"
     },
@@ -126,6 +154,9 @@ const bebidas = [
         "alcoholContent": "9% ABV",
         "calorias": "140",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Tequila",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Sirve en un vaso alto con hielo y una rodaja de toronja para una presentación elegante!"
     },
@@ -139,6 +170,9 @@ const bebidas = [
         "alcoholContent": "8% ABV",
         "calorias": "120",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Ginebra",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Decora con bayas de enebro y una rodaja de limón para un toque de sofisticación!"
     },
@@ -151,7 +185,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "9% ABV",
         "calorias": "160",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Vodka",
+        "dificultad": "Media",
+        "sabor": "Picante"
       },
       "extraInfo": "¡Decora con un tallo de apio, una aceituna y una rodaja de limón para un toque de sabor adicional!"
     },
@@ -164,7 +201,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "170",
-        "tiempoDePreparacion": "7 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ron",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con una rodaja de piña, una cereza y una sombrilla para un toque tropical!"
     },
@@ -177,7 +217,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "9% ABV",
         "calorias": "150",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Vodka",
+        "dificultad": "Media",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Sirve en una copa de martini con una cáscara de lima para un toque de sofisticación!"
     },
@@ -190,7 +233,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "160",
-        "tiempoDePreparacion": "7 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Pisco",
+        "dificultad": "Media",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Decora con una rodaja de limón y un toque de canela en polvo para un toque adicional de sabor!"
     },
@@ -204,6 +250,9 @@ const bebidas = [
         "alcoholContent": "8.5% ABV",
         "calorias": "140",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Vodka",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Sirve en un vaso alto con hielo y una rodaja de limón para un toque de frescura!"
     },
@@ -216,7 +265,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "8% ABV",
         "calorias": "150",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Vodka",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con trozos de frutas frescas y una ramita de menta para un toque de color y frescura!"
     },
@@ -229,7 +281,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "9% ABV",
         "calorias": "180",
-        "tiempoDePreparacion": "7 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ron",
+        "dificultad": "Media",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Sirve en una copa de margarita con un borde escarchado de coco para una presentación espectacular!"
     },
@@ -243,6 +298,9 @@ const bebidas = [
         "alcoholContent": "9% ABV",
         "calorias": "160",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Tequila",
+        "dificultad": "Fácil",
+        "sabor": "Cítrico"
       },
       "extraInfo": "¡Decora con una rodaja de naranja y una cereza maraschino para un toque de color!"
     },
@@ -255,7 +313,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "8.5% ABV",
         "calorias": "150",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Tequila",
+        "dificultad": "Media",
+        "sabor": "Cítrico, "
       },
       "extraInfo": "¡Sirve en un vaso escarchado con sal y una rodaja de lima para una presentación espectacular!"
     },
@@ -268,7 +329,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "8% ABV",
         "calorias": "140",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ginebra",
+        "dificultad": "Media",
+        "sabor": "Herbal"
       },
       "extraInfo": "¡Decora con una rodaja de pepino y una hoja de albahaca para un toque de frescura adicional!"
     },
@@ -281,7 +345,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "160",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Whisky",
+        "dificultad": "Media",
+        "sabor": "Amargo"
       },
       "extraInfo": "¡Decora con una cereza maraschino y una cáscara de naranja para un toque de elegancia!"
     },
@@ -294,7 +361,10 @@ const bebidas = [
       "facts": {
         "alcoholContent": "10% ABV",
         "calorias": "140",
-        "tiempoDePreparacion": "5 minutos",
+        "tiempoDePreparacion": "10 minutos",
+        "clasificacionLicor": "Ginebra",
+        "dificultad": "Media",
+        "sabor": "Amargo"
       },
       "extraInfo": "¡Sirve en una copa de martini enfriada y decora con una aceituna verde para un toque de estilo!"
     },
@@ -308,6 +378,9 @@ const bebidas = [
         "alcoholContent": "8% ABV",
         "calorias": "130",
         "tiempoDePreparacion": "5 minutos",
+        "clasificacionLicor": "Aguardiente",
+        "dificultad": "Fácil",
+        "sabor": "Dulce"
       },
       "extraInfo": "¡Decora con rodajas de fresa y una ramita de menta para un toque de frescura!"
     },
