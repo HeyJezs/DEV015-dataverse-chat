@@ -41,8 +41,8 @@ export default function ChatGroup() {
     userMessageEl.classList.add('user-message');
     chatOutput.appendChild(userMessageEl);
   
-    // Iterar sobre todas las bebidas y enviar el mensaje
-    for (const bebida of bebidas) {
+    // Crear un array de promesas para todas las bebidas
+    const promises = bebidas.map(async (bebida) => {
       try {
         const response = await communicateWithOpenAI([{ role: "user", content: userMessage }], bebida);
 
@@ -56,8 +56,20 @@ export default function ChatGroup() {
         botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
         botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
+        return botMessageEl;
       }
-    }
+    });
+
+    // Esperar a que todas las promesas se resuelvan y añadir las respuestas al chat
+    Promise.all(promises)
+      .then(botMessages => {
+        botMessages.forEach(messageEl => chatOutput.appendChild(messageEl));
+      })
+      .catch(error => {
+        const errorMessageEl = document.createElement('p');
+        errorMessageEl.textContent = `Hubo un error al procesar las respuestas: ${error.message}`;
+        chatOutput.appendChild(errorMessageEl);
+      });
 
     // Limpiar el input después de enviar
     chatInput.value = '';
