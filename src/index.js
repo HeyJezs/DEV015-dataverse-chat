@@ -38,3 +38,21 @@ TODO:
 2.- Pasar "root element" a router.
 3.- Invocar el router para renderizar la vista correcta.
 */
+//menú de hamburguesa
+document.addEventListener("DOMContentLoaded", function() {
+document.querySelector(".bars-menu").addEventListener("click", animateBars);
+
+const line1_bars = document.querySelector(".line1-bars-menu");
+const line2_bars = document.querySelector(".line2-bars-menu");
+const line3_bars = document.querySelector(".line3-bars-menu");
+const container_menu = document.querySelector(".menu");
+const overlay = document.querySelector(".overlay"); // Selecciona el overlay
+
+function animateBars(){
+    line1_bars.classList.toggle("activeline1-bars-menu");
+    line2_bars.classList.toggle("activeline2-bars-menu");
+    line3_bars.classList.toggle("activeline3-bars-menu");
+    container_menu.classList.toggle("menu_active")
+    overlay.classList.toggle("overlay_active");
+};
+});
