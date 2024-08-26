@@ -16,7 +16,6 @@ const renderFilteredData = (filteredData) => {
     container.appendChild(ul); // Añade el nuevo <ul> si no existe
   }
 
-  console.log('Datos filtrados y ordenados renderizados en el DOM');
 };
 
 // Inicializar el renderizado de los datos
@@ -35,8 +34,6 @@ const applyFilter = () => {
   const filterLicor = document.querySelector('[data-testid="select-filter-licor"]').value;
   const filterDificultad = document.querySelector('[data-testid="select-filter-dificultad"]').value;
   const filterSabor = document.querySelector('[data-testid="select-filter-sabor"]').value;
-
-  console.log('Valores de filtros:', { filterTime, filterLicor, filterDificultad, filterSabor });
 
   // Empezamos con el dataset completo
   let filteredData = [...dataset];
@@ -72,7 +69,6 @@ export const setupEventListeners = () => {
   const statsResult = document.getElementById('statsResult');
 
   if (!filtroTime || !filtroLicor || !filtroDificultad || !filtroSabor || !orden1 || !clearButton || !computeStatsButton || !statsResult) {
-    console.error('Uno o más elementos no se encontraron en el DOM.');
     return;
   }
 
@@ -95,7 +91,6 @@ export const setupEventListeners = () => {
     orden1.value = '';
     datosFiltradosYOrdenados = [...dataset];
     renderFilteredData(datosFiltradosYOrdenados);
-    console.log('Filtros limpiados');
   });
 
   computeStatsButton.addEventListener('click', (e) => {

@@ -1,39 +1,38 @@
-import { getApiKey, setApiKey } from './apiKey.js';
+import { getApiKey } from './apiKey.js';
 
 export const communicateWithOpenAI = (messages, bebida) => {
-   const apiKey = getApiKey();
+  const apiKey = getApiKey();
 
-   return fetch('https://api.openai.com/v1/chat/completions', {
-     method: 'POST',
-     headers:{
+  return fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers:{
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`
-     },
-     body:JSON.stringify({
+    },
+    body:JSON.stringify({
       "model": "gpt-4o-mini",
       "messages": [
-         { role: "system", content: `Eres el cóctel ${bebida.name}. Responde como si fueras ${bebida.name}.` },
-         ...messages
-       ],
+        { role: "system", content: `Eres el cóctel ${bebida.name}. Responde como si fueras ${bebida.name}.` },
+        ...messages
+      ],
       "temperature": 0.7
-     })
-   })
-   .then(response => {
+    })
+  })
+    .then(response => {
       if (!response.ok) {
-         throw new Error('Error en la respuesta de la API: ' + response.statusText);
+        throw new Error('Error en la respuesta de la API: ' + response.statusText);
       }
       return response.json();
-   })
-   .then(data => {
+    })
+    .then(data => {
       // Verificar si 'choices' existe y no está vacío
       if (data.choices && data.choices.length > 0) {
-         return data.choices[0].message.content;
+        return data.choices[0].message.content;
       } else {
-         throw new Error('No se encontraron respuestas en la respuesta de la API');
+        throw new Error('No se encontraron respuestas en la respuesta de la API');
       }
-   })
-   .catch(error => {
-      console.error('Error al comunicarse con la API:', error);
+    })
+    .catch(() => {
       return 'Hubo un error al obtener la respuesta. Inténtalo de nuevo más tarde.';
-   });
+    });
 };
