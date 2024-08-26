@@ -24,20 +24,22 @@ export default function BebidasView(params) {
 
     // Mostrar los detalles de la bebida
     viewEl.innerHTML = `
-        <h1>${bebida.name}</h1>
-        <img src="${bebida.imageUrl}" alt="${bebida.name}" style="width: 300px;">
-        <p>${bebida.description}</p>
+        <h1 class="h1-ind">Chat con ${bebida.name}</h1>
+        <img class="img-ind" src="${bebida.imageUrl}" alt="${bebida.name}" style="width: 300px;">
+        <p class="p-ind">${bebida.description}</p>
+        <div id="datosCoctel">
         <ul>
             <li>Contenido de Alcohol: ${bebida.facts.alcoholContent}</li>
             <li>Calorías: ${bebida.facts.calorias}</li>
             <li>Tiempo de Preparación: ${bebida.facts.tiempoDePreparacion}</li>
         </ul>
-        <p>${bebida.extraInfo}</p>
+        <p class="p-ind">${bebida.extraInfo}</p>
+        </div>
         <div id="chatOutput"></div>
         <form id="chatForm">
             <input id="chatInput" placeholder="Escribe tu mensaje..."></input>
             <br>
-            <button type="submit">Enviar</button>
+            <button class="btn-chat" type="submit">Enviar</button>
         </form>
     `;
 
@@ -50,11 +52,14 @@ export default function BebidasView(params) {
         event.preventDefault();
         
         const userMessage = chatInput.value;
+    const datosCoctel = viewEl.querySelector('#datosCoctel');
+    datosCoctel.classList.add('hidden')
     
     if (userMessage) {
       // Mostrar el mensaje del usuario en el chat
       const userMessageEl = document.createElement('p');
-      userMessageEl.textContent = `Tú: ${userMessage}`;
+      userMessageEl.textContent = `​👤​Tú: ${userMessage}`;
+      userMessageEl.classList.add('user-message');
       chatOutput.appendChild(userMessageEl);
       
       try {
@@ -63,16 +68,19 @@ export default function BebidasView(params) {
         
         // Mostrar la respuesta del bot
         const botMessageEl = document.createElement('p');
-        botMessageEl.textContent = `${bebida.name}: ${response}`;
+        botMessageEl.textContent = `🍹​${bebida.name}: ${response}`;
+        botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
         const botMessageEl = document.createElement('p');
         errorbotMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       }
 
       // Limpiar el input después de enviar
       chatInput.value = '';
+      chatOutput.scrollTop = chatOutput.scrollHeight;
     }
   });
 

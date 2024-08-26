@@ -13,11 +13,11 @@ export default function ChatGroup() {
       <ul id="cocktailList">
         ${cocktailListHTML}
       </ul>
-      <div id="chatOutput"></div>
+      <div class="chat-out" id="chatOutput"></div>
       <form id="chatForm">
-        <input id="chatInput" placeholder="Escribe"></input>
+        <input id="chatInput" placeholder="Escribe tu mensaje..."></input>
         <br>
-        <button type="submit">Enviar</button>
+        <button class="btn-chat" type="submit">Enviar</button>
       </form>
     </div>
   `;
@@ -37,7 +37,7 @@ export default function ChatGroup() {
   
     // Mostrar el mensaje del usuario en el chat
     const userMessageEl = document.createElement('p');
-    userMessageEl.textContent = `Tú: ${userMessage}`;
+    userMessageEl.textContent = `👤​Tú: ${userMessage}`;
     userMessageEl.classList.add('user-message');
     chatOutput.appendChild(userMessageEl);
   
@@ -48,7 +48,7 @@ export default function ChatGroup() {
 
         // Mostrar la respuesta en el chat
         const botMessageEl = document.createElement('p');
-        botMessageEl.textContent = `${bebida.name}: ${response}`;
+        botMessageEl.textContent = `🥂​${bebida.name}: ${response}`;
         botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
