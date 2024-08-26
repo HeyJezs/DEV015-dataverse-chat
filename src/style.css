@@ -32,6 +32,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /*margin-right: 550px; revisar ya que sin este margin se ve responsive el h1*/
     position: relative;
+    z-index: 15;
   }
   .header-container {
     display: flex;
@@ -41,7 +42,7 @@
     background-color: #875D5E;
     padding: 20px;
     position: relative; /* Necesario si quieres que el z-index de otros elementos funcione correctamente */
-    z-index: 15; /* El header debe estar por encima del overlay */
+     /* El header debe estar por encima del overlay */
 }
 
   .subtitulo{
@@ -51,14 +52,15 @@
 /*menú hamburguesa*/
 .bars-menu{
   background:#875D5E;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   top:30%;
   left: -50%;
   position: absolute;
   cursor:pointer;
   display: none;
   z-index: 30;
+  padding: 5px;
 }
  
 .bars-menu span{
@@ -109,7 +111,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-  z-index: 10; /* Debe estar sobre el contenido principal, pero debajo del menú */
+  z-index: 20; /* Debe estar sobre el contenido principal, pero debajo del menú */
   display: none; /* Inicialmente oculto */
 }
 
@@ -121,7 +123,7 @@
 .menu {
   z-index: 25; /* El menú debe estar encima del overlay */
 }
-  nav { 
+  nav {
     background-color: #333;
     position: absolute;
     gap: 1rem;
@@ -132,14 +134,16 @@
     align-items: end;
     top: 0;
     right: 0;
-    bottom: 0;}
+    bottom: 0; 
+    font-family:Arial, Helvetica, sans-serif
+  }
   
     a {
+    padding: 10px;
     background-color: #333;
     color:white;
-   
-   
-  }*/
+    text-decoration: none;   
+  }
   
   .principal{
     width: 100%;
@@ -156,7 +160,7 @@
     justify-content: left;
     background-color: #A28B8C;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
@@ -313,6 +317,19 @@
     }
     
   }
+/*CHAT INDIVIDUAL*/
+.h1-ind{
+  display: flex;
+  justify-content: center;
+}
+.img-ind{
+  display: block;
+  margin: 0 auto;
+}
+.p-ind{
+  margin:5px;
+}
+
 /*CHAT GRUPAL*/
 .h1-group {
   display: flex;
@@ -329,20 +346,38 @@
   padding: 20px;
   margin: 0;
 }
+#chatInput{
+  width: 1100px;
+  height: 80px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color:rgb(207, 175, 191);
+}
+.btn-chat{
+  background-color: #333;
+  width: 90px;
+  height: 50px;
+  border-radius: 20px;
+  color: white;
+  margin-top: -15px;
+}
 
 .user-message {
-  background-color: #c4a59e;
+  background-color:rgba(51, 124, 161, 0.836);
   padding: 8px;
-  border-radius: 5px;
-  margin: 5px 0px;
+  border-radius: 10px 0px 15px 10px;
+  margin: 10px 600px;
+  margin-left: 450px;
+  width: 800px;
 }
 
 /* Estilo para el mensaje del bot */
 .bot-message {
-  background-color: lightgreen;
+  background-color: rgb(90, 188, 134);
   padding: 8px;
-  border-radius: 5px;
-  margin: 5px 10px;
+  border-radius: 0px 10px 10px 15px;
+  margin: 10px 10px;
+  width: 1100px;
 }
 /*desaparece el ul de cocktails*/
 .hidden {
