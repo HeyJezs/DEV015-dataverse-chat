@@ -1,55 +1,58 @@
+/* Reset y estilos globales */
 *{
-    background-color: #C49899;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;}
-  
-    main {
-      flex: 1;
-    }
-  
-    header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #875D5E;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 0px 20px 0px 20px;
-  }
-    header h1{
-    background-color: #875D5E;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /*margin-right: 550px; revisar ya que sin este margin se ve responsive el h1*/
-    position: relative;
-    z-index: 15;
-  }
-  .header-container {
-    display: flex;
-    justify-content: space-between; /* Distribuye espacio entre el h1 y el menú */
-    align-items: center; /* Centra verticalmente el contenido */
-    padding: 20px; /* Espacio alrededor del contenedor */
-    background-color: #875D5E;
-    padding: 20px;
-    position: relative; /* Necesario si quieres que el z-index de otros elementos funcione correctamente */
-     /* El header debe estar por encima del overlay */
+  background-color: #C49899;
+  box-sizing: border-box;
 }
 
-  .subtitulo{
-    display: flex;
-    justify-content: center;
-  }
-/*menú hamburguesa*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estructura principal */
+main {
+  flex: 1;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #875D5E;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 0px 20px 0px 20px;
+}
+header h1{
+  background-color: #875D5E;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: 15;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye espacio entre el h1 y el menú */
+  align-items: center; /* Centra verticalmente el contenido */
+  padding: 20px; /* Espacio alrededor del contenedor */
+  background-color: #875D5E;
+  position: relative; /* Necesario si quieres que el z-index de otros elementos funcione correctamente */
+  /* El header debe estar por encima del overlay */
+}
+
+.subtitulo{
+  display: flex;
+  justify-content: center;
+}
+
+/* Menú hamburguesa */
 .bars-menu{
   background:#875D5E;
   width: 40px;
@@ -77,32 +80,16 @@
 .activeline1-bars-menu{
   transform: rotate(45deg) translate(-2px, 1px);
 }
+
 .activeline2-bars-menu{
  opacity: 0;
  margin-left: -40px;
 }
+
 .activeline3-bars-menu{
   transform: rotate(-45deg) translate(-4px, 2px);
 }
-@media screen and (min-width: 400px) {
 
-  .header-container {
-    display: flex;
-    flex-direction: column; /* Coloca el h1 y el menú uno encima del otro */
-    align-items: center; /* Centra el contenido horizontalmente */
-}
-  .bars-menu {
-    display: block; /* Mostrar el menú de hamburguesa */
-  }
-  
-  .menu {
-    display: none; /* Ocultar el menú de navegación por defecto */
-  }
-
-  .menu_active {
-    display: block; /* Mostrar el menú de navegación cuando está activo */
-  }
-}
 /* Overlay para aplicar la opacidad al fondo */
 .overlay {
   position: fixed; /* Fija el overlay para que cubra toda la ventana */
@@ -119,80 +106,84 @@
 .menu_active ~ .overlay {
   display: block;
 }
-  
+
+/* Navegación */
 .menu {
   z-index: 25; /* El menú debe estar encima del overlay */
 }
-  nav {
-    background-color: #333;
-    position: absolute;
-    gap: 1rem;
-    padding: 2rem;
-    display: flex;
-    justify-content:center;
-    flex-direction: column;
-    align-items: end;
-    top: 0;
-    right: 0;
-    bottom: 0; 
-    font-family:Arial, Helvetica, sans-serif
-  }
+
+nav {
+  background-color: #333;
+  position: absolute;
+  gap: 1rem;
+  padding: 2rem;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items: end;
+  top: 0;
+  right: 0;
+  bottom: 0; 
+  font-family:Arial, Helvetica, sans-serif
+}
   
-    a {
-    padding: 10px;
-    background-color: #333;
-    color:white;
-    text-decoration: none;   
-  }
+a {
+  padding: 10px;
+  background-color: #333;
+  color:white;
+  text-decoration: none;   
+}
+
+/* Elementos principales */
+.principal{
+  width: 100%;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: 0% 20%;
+}
   
-  .principal{
-    width: 100%;
-    height: 300px;
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-    object-position: 0% 20%;
+footer{
+  display: flex;
+  justify-content: left;
+  background-color: #A28B8C;
+  padding: 10px;
+  margin: 0px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
   
-  }
+footer p{
+  background-color: #A28B8C;
+}
+
+/* Barra de interacción */
+form {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+  align-items: center; /* Centrar verticalmente los elementos */
+  gap: 10px; /* Espacio entre los elementos */
+  margin: 10px 0; /* Espacio alrededor del formulario */
+}
   
-  footer{
-    display: flex;
-    justify-content: left;
-    background-color: #A28B8C;
-    padding: 10px;
-    margin: 0px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+select {
+  flex: 1;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
   
-  footer p{
-    background-color: #A28B8C;
-  }
-  /* BARRA DE INTERACCION */
-  
-  form {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacio entre los elementos */
-  }
-  
-  select {
-    flex: 1;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  button[data-testid="button-clear"] {
-    font-size: medium;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+button[data-testid="button-clear"] {
+  font-size: medium;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
   
   #computeStatsButton {
     font-size: medium;
@@ -204,134 +195,118 @@
     cursor: pointer;
   }
     
-  /* DISEño TARJETAS */
-  .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0;
-    list-style-type: none;
-  }
+/* Diseño de tarjetas */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+  list-style-type: none;
+}
   
-  .card-container{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    margin: 10px;
-    flex: 0 1 calc(25% - 20px);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.2s;
-    padding: 10px;
-  }
+.card-container{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  margin: 10px;
+  flex: 0 1 calc(25% - 20px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s;
+  padding: 10px;
+}
   
+.card-container * {
+  background-color: transparent;
+}
   
-  .card-container * {
-    background-color: transparent;
-  }
+.card-container:hover{
+  transform: scale(1.05);
+}
   
-  .card-container:hover{
-    transform: scale(1.05);
-  }
+.card-container img{
+  max-width: 90%;
+  border-radius: 8px;
+  margin: auto;
+  display: block;
+}
   
-  .card-container img{
-    max-width: 90%;
-    border-radius: 8px;
-    margin: auto;
-    display: block;
-  }
+.card-container .card-title {
+  font-weight: bold;
+  font-size: large;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  margin-bottom: 10px;
+  display: block;
+}
   
-  .card-container .card-title {
-    font-weight: bold;
-    font-size: large;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-    margin-bottom: 10px;
-    display: block;
-  }
+.card-container .short-description {
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
   
-  .card-container .short-description {
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+.card-container [itemprop="alcoholContent"],
+.card-container [itemprop="calorias"],
+.card-container [itemprop="tiempoDePreparacion"] {
+  font-weight: bold;
+}
   
-  .card-container [itemprop="alcoholContent"],
-  .card-container [itemprop="calorias"],
-  .card-container [itemprop="tiempoDePreparacion"] {
-      font-weight: bold;
-  }
+/* Estadísticas */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
   
-  /*ESTADISTICAS*/
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
+#computeStatsButton {
+  padding: 10px 20px;
+  font-size: medium;
+}
   
-  #computeStatsButton {
-    padding: 10px 20px;
-    font-size: medium;
-  }
+#statsResult {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
   
-  #statsResult {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
+.stat-box {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
   
-  .stat-box {
-    flex: 1;
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.3);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  .stat-box.result {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid #333;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /*DISEñO RESPONSIVE*/
-  @media screen and (min-width: 768px) {
-    .card {
-      flex: 0 1 calc(50% - 20px); /* Dos tarjetas por fila en tablets */
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    .card {
-      flex: 0 1 calc(25% - 20px); /* tres tarjetas por fila en escritorio */
-    }
-  }
-  @media screen and (max-width: 600px) {
-    form {
-        flex-direction: column;
-    }
-    
-  }
-/*CHAT INDIVIDUAL*/
+.stat-box.result {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #333;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Chat individual */
 .h1-ind{
   display: flex;
   justify-content: center;
 }
+
 .img-ind{
   display: block;
   margin: 0 auto;
 }
+
 .p-ind{
   margin:5px;
 }
 
-/*CHAT GRUPAL*/
-.h1-group {
+/* Chat grupal */
+.h1-group, .h2-group {
   display: flex;
   justify-content: center;
   background-color: #A28B8C;
@@ -339,13 +314,6 @@
   margin: 0;
 }
 
-.h2-group {
-  display: flex;
-  justify-content: center;
-  background-color: #A28B8C;
-  padding: 20px;
-  margin: 0;
-}
 #chatInput{
   width: 1100px;
   height: 80px;
@@ -353,6 +321,7 @@
   border-radius: 10px;
   background-color:rgb(207, 175, 191);
 }
+
 .btn-chat{
   background-color: #333;
   width: 90px;
@@ -371,7 +340,6 @@
   width: 800px;
 }
 
-/* Estilo para el mensaje del bot */
 .bot-message {
   background-color: rgb(90, 188, 134);
   padding: 8px;
@@ -379,7 +347,79 @@
   margin: 10px 10px;
   width: 1100px;
 }
-/*desaparece el ul de cocktails*/
+
 .hidden {
   display: none;
+}
+
+/* Vista error */
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.error-container img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/* DISEñO RESPONSIVE */
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    flex: 0 1 calc(50% - 20px); /* Dos tarjetas por fila en tablets */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    flex: 0 1 calc(25% - 20px); /* tres tarjetas por fila en escritorio */
+  }
+}
+
+@media screen and (min-width: 400px) {
+
+  .bars-menu {
+    display: block; /* Mostrar el menú de hamburguesa en pantallas pequeñas */
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column; /* Coloca el h1 y el menú uno encima del otro */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+  .bars-menu {
+    display: block; /* Mostrar el menú de hamburguesa */
+  }
+  
+  .menu {
+    display: none; /* Ocultar el menú de navegación por defecto */
+  }
+
+  .menu_active {
+    display: block; /* Mostrar el menú de navegación cuando está activo */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column; /* Colocar los elementos en una columna */
+  }
+
+  form select,
+  form button {
+    flex: none; /* Quitar el crecimiento automático */
+    width: 100%; /* Ancho completo en dispositivos pequeños */
+  }
 }

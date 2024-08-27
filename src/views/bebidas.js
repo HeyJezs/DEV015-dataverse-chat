@@ -2,28 +2,28 @@ import { communicateWithOpenAI } from '../lib/openAIApi.js';
 import { getBebidaById } from '../data/dataset.js';
 
 export default function BebidasView(params) {
-    // Crear el contenedor principal para la vista
-    const viewEl = document.createElement('div');
+  // Crear el contenedor principal para la vista
+  const viewEl = document.createElement('div');
     
-    // Obtener el ID desde los parámetros o search params
-    const bebidaId = params.id || new URLSearchParams(window.location.search).get('id');
+  // Obtener el ID desde los parámetros o search params
+  const bebidaId = params.id || new URLSearchParams(window.location.search).get('id');
     
-    // Verificar que se ha obtenido un ID válido
-    if (!bebidaId) {
-        viewEl.innerHTML = `<p>ID de bebida no especificado.</p>`;
-        return viewEl;
-    }
+  // Verificar que se ha obtenido un ID válido
+  if (!bebidaId) {
+    viewEl.innerHTML = `<p>ID de bebida no especificado.</p>`;
+    return viewEl;
+  }
 
-    // Obtener la bebida del conjunto de datos
-    const bebida = getBebidaById(bebidaId);
+  // Obtener la bebida del conjunto de datos
+  const bebida = getBebidaById(bebidaId);
     
-    if (!bebida) {
-        viewEl.innerHTML = `<p>Bebida no encontrada.</p>`;
-        return viewEl;
-    }
+  if (!bebida) {
+    viewEl.innerHTML = `<p>Bebida no encontrada.</p>`;
+    return viewEl;
+  }
 
-    // Mostrar los detalles de la bebida
-    viewEl.innerHTML = `
+  // Mostrar los detalles de la bebida
+  viewEl.innerHTML = `
         <h1 class="h1-ind">Chat con ${bebida.name}</h1>
         <img class="img-ind" src="${bebida.imageUrl}" alt="${bebida.name}" style="width: 300px;">
         <p class="p-ind">${bebida.description}</p>
@@ -43,22 +43,22 @@ export default function BebidasView(params) {
         </form>
     `;
 
-    // Agregar funcionalidad al formulario de chat
-    const chatForm = viewEl.querySelector('#chatForm');
-    const chatInput = viewEl.querySelector('#chatInput');
-    const chatOutput = viewEl.querySelector('#chatOutput');
+  // Agregar funcionalidad al formulario de chat
+  const chatForm = viewEl.querySelector('#chatForm');
+  const chatInput = viewEl.querySelector('#chatInput');
+  const chatOutput = viewEl.querySelector('#chatOutput');
 
-    chatForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+  chatForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
         
-        const userMessage = chatInput.value;
+    const userMessage = chatInput.value;
     const datosCoctel = viewEl.querySelector('#datosCoctel');
     datosCoctel.classList.add('hidden')
     
     if (userMessage) {
       // Mostrar el mensaje del usuario en el chat
       const userMessageEl = document.createElement('p');
-      userMessageEl.textContent = `​👤​Tú: ${userMessage}`;
+      userMessageEl.textContent = `👤 Tú: ${userMessage}`;
       userMessageEl.classList.add('user-message');
       chatOutput.appendChild(userMessageEl);
       
@@ -68,12 +68,12 @@ export default function BebidasView(params) {
         
         // Mostrar la respuesta del bot
         const botMessageEl = document.createElement('p');
-        botMessageEl.textContent = `🍹​${bebida.name}: ${response}`;
+        botMessageEl.textContent = `🍹 ${bebida.name}: ${response}`;
         botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
         const botMessageEl = document.createElement('p');
-        errorbotMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
+        botMessageEl.textContent = `Error con ${bebida.name}: ${error.message}`;
         botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       }

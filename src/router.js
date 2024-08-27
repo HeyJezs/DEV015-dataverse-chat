@@ -3,43 +3,43 @@ const routes = {};
 
 // Establece el elemento raíz donde se renderizan las vistas
 export function setRootEl(element) {
-    rootElement = element;
+  rootElement = element;
 }
 
 // Define las rutas y sus vistas correspondientes
 export function setRoutes(newRoutes) {
-    Object.assign(routes, newRoutes);
+  Object.assign(routes, newRoutes);
 }
 
 // Cambia la URL y actualiza la vista sin recargar la página
 export function navigateTo(path) {
-    history.pushState(null, '', path);
-    onURLChange(); // Actualiza la vista basada en la nueva URL
+  history.pushState(null, '', path);
+  onURLChange(); // Actualiza la vista basada en la nueva URL
 }
 
 // Convierte una cadena de consulta en un objeto
 export function queryStringToObject(queryString) {
-    const params = new URLSearchParams(queryString);
-    const result = {};
-    for (const [key, value] of params) {
-        result[key] = value;
-    }
-    return result;
+  const params = new URLSearchParams(queryString);
+  const result = {};
+  for (const [key, value] of params) {
+    result[key] = value;
+  }
+  return result;
 }
 
 // Renderiza la vista basada en la URL actual
 export function renderView(path, params) {
-    const view = routes[path] || routes['/error'];
-    rootElement.innerHTML = '';
-    rootElement.appendChild(view(params));
+  const view = routes[path] || routes['/error'];
+  rootElement.innerHTML = '';
+  rootElement.appendChild(view(params));
 }
 
 // Maneja el cambio de URL
 export function onURLChange() {
-    const path = window.location.pathname;
-    const queryString = window.location.search; // Obtiene la cadena de consulta (ej. ?id=123)
-    const params = queryStringToObject(queryString); // Convierte la cadena de consulta en un objeto
+  const path = window.location.pathname;
+  const queryString = window.location.search; // Obtiene la cadena de consulta (ej. ?id=123)
+  const params = queryStringToObject(queryString); // Convierte la cadena de consulta en un objeto
     
-    // Asume que cada ruta puede ser una función que acepta parámetros
-    renderView(path, params); // Pasa los parámetros a la vista
+  // Asume que cada ruta puede ser una función que acepta parámetros
+  renderView(path, params); // Pasa los parámetros a la vista
 }

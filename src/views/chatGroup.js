@@ -37,7 +37,7 @@ export default function ChatGroup() {
   
     // Mostrar el mensaje del usuario en el chat
     const userMessageEl = document.createElement('p');
-    userMessageEl.textContent = `👤​Tú: ${userMessage}`;
+    userMessageEl.textContent = `👤 Tú: ${userMessage}`;
     userMessageEl.classList.add('user-message');
     chatOutput.appendChild(userMessageEl);
   
@@ -48,7 +48,7 @@ export default function ChatGroup() {
 
         // Mostrar la respuesta en el chat
         const botMessageEl = document.createElement('p');
-        botMessageEl.textContent = `🥂​${bebida.name}: ${response}`;
+        botMessageEl.textContent = `🥂 ${bebida.name}: ${response}`;
         botMessageEl.classList.add('bot-message');
         chatOutput.appendChild(botMessageEl);
       } catch (error) {
@@ -74,9 +74,9 @@ export default function ChatGroup() {
     // Limpiar el input después de enviar
     chatInput.value = '';
  
-  // Desplazar el chat hacia el último mensaje
-  chatOutput.scrollTop = chatOutput.scrollHeight;
-});
+    // Desplazar el chat hacia el último mensaje
+    chatOutput.scrollTop = chatOutput.scrollHeight;
+  });
 
   
   return viewEl;
