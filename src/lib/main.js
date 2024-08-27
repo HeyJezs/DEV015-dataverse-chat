@@ -69,6 +69,7 @@ export const setupEventListeners = () => {
   const statsResult = document.getElementById('statsResult');
 
   if (!filtroTime || !filtroLicor || !filtroDificultad || !filtroSabor || !orden1 || !clearButton || !computeStatsButton || !statsResult) {
+    console.warn('No todos los elementos del DOM están disponibles para configurar los event listeners.');
     return;
   }
 
