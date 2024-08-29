@@ -8,6 +8,10 @@ export default function ApiKeyAdmin() {
   const input = document.createElement('input');
   const submitButton = document.createElement('button');
 
+  submitButton.classList.add('btn-chat');
+  input.classList.add('inp-api');
+  label.classList.add('lab-api')
+
   // Configurar los elementos del formulario
   label.textContent = 'Ingrese su API KEY:';
   label.setAttribute('for', 'apiKeyInput');
