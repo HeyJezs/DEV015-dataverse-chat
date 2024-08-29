@@ -30,7 +30,7 @@ export const renderItems = (data) => {
             <dt itemprop="sabor">Sabor:</dt>
             <dd>${item.facts.sabor}</dd>
         </dl>
-        <button class="chat-button" onclick="location.href='/bebidas?id=${item.id}'">Chatear con esta bebida</button>
+        <button class="chat-button" onclick="location.href='/bebidas?id=${item.id}'"><span>Chatear con esta bebida</span></button>
     </div>`;
     //console.log(li);
     return li

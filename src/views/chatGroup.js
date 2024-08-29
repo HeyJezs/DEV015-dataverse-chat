@@ -75,7 +75,7 @@ export default function ChatGroup() {
     chatInput.value = '';
  
     // Desplazar el chat hacia el último mensaje
-    chatOutput.scrollTop = chatOutput.scrollHeight;
+    document.body.scrollTop = chatOutput.scrollHeight;
   });
 
   
