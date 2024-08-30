@@ -23,47 +23,44 @@ main {
 
 header{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   background-color: #875D5E;
-  padding: 10px;
+  padding: 10px 20px;
   margin: 10px;
   border-radius: 0px 20px 0px 20px;
-}
-header h1{
-  background-color: #875D5E;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  position: relative;
-  z-index: 15;
 }
 
 .header-container {
   display: flex;
-  justify-content: space-between; /* Distribuye espacio entre el h1 y el menú */
-  align-items: center; /* Centra verticalmente el contenido */
-  padding: 20px; /* Espacio alrededor del contenedor */
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px; /* Espacio alrededor del contenedor */
   background-color: #875D5E;
   position: relative; /* Necesario si quieres que el z-index de otros elementos funcione correctamente */
   /* El header debe estar por encima del overlay */
 }
 
-.subtitulo{
-  display: flex;
-  justify-content: center;
+header h1{
+  background-color: #875D5E;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
 /* Menú hamburguesa */
 .bars-menu{
-  background:#875D5E;
+  background: #875D5E;
   width: 40px;
   height: 40px;
-  top:30%;
- 
-  position: absolute;
-  cursor:pointer;
-  display: none;
+  cursor: pointer;
+  display: flex; /* Cambia el display para alinear las barras */
+  flex-direction: column; /* Alinea las barras verticalmente */
+  justify-content: center; /* Centra las barras verticalmente */
+  align-items: center; /* Centra las barras horizontalmente */
   z-index: 30;
   padding: 5px;
+  margin-right: 20px; /* Añade un margen a la derecha para espaciarlo del h1 */
 }
  
 .bars-menu span{
@@ -105,6 +102,10 @@ header h1{
 /* Mostrar el overlay cuando el menú está activo */
 .menu_active ~ .overlay {
   display: block;
+}
+
+.subtitulo{
+  text-align: center; /* Centra el texto sin usar flex */
 }
 
 /* Navegación */
@@ -494,9 +495,7 @@ button[data-testid="button-clear"] {
     flex-direction: column; /* Coloca el h1 y el menú uno encima del otro */
     align-items: center; /* Centra el contenido horizontalmente */
 }
-  .bars-menu {
-    display: block; /* Mostrar el menú de hamburguesa */
-  }
+
   
   .menu {
     display: none; /* Ocultar el menú de navegación por defecto */
@@ -520,9 +519,8 @@ button[data-testid="button-clear"] {
 }
 
 @media (max-width: 768px) {
-  .bebida-header {
-    flex-direction: column;
-    text-align: center;
+  .bars-menu {
+    display: flex; /* Asegúrate de que el menú hamburguesa sea visible en pantallas pequeñas */
   }
 
   .bebida-avatar {
