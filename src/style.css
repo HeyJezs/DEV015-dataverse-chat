@@ -251,7 +251,10 @@ button[data-testid="button-clear"] {
   
 .card-container [itemprop="alcoholContent"],
 .card-container [itemprop="calorias"],
-.card-container [itemprop="tiempoDePreparacion"] {
+.card-container [itemprop="tiempoDePreparacion"] 
+.card-container [itemprop="clasificacionLicor"]
+.card-container [itemprop="dificultad"]
+.card-container [itemprop="sabor"]{
   font-weight: bold;
 }
   
@@ -290,66 +293,158 @@ button[data-testid="button-clear"] {
   font-weight: bold;
 }
 
-/* Chat individual */
-.h1-ind{
+
+/* CHATS */
+
+.container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.img-ind{
-  display: block;
-  margin: 0 auto;
-}
-
-.p-ind{
-  margin:5px;
-}
-
-/* Chat grupal */
-.h1-group, .h2-group {
+/* Banda superior de la bebida */
+.bebida-header {
   display: flex;
-  justify-content: center;
-  background-color: #A28B8C;
-  padding: 20px;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.bebida-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.bebida-info {
+  flex-grow: 1;
+  background-color: #ffffff;
+}
+
+.bebida-name {
   margin: 0;
+  font-size: 1.5em;
+  background-color: #ffffff;
 }
 
-#chatInput{
-  width: 1100px;
-  height: 80px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color:rgb(207, 175, 191);
+.bebida-short-description {
+  margin: 5px 0 0;
+  font-size: 1em;
+  color: #666;
+  background-color: #ffffff;
 }
 
-.btn-chat{
-  background-color: #333;
-  width: 90px;
-  height: 50px;
-  border-radius: 20px;
-  color: white;
-  margin-top: -15px;
+/* Contenedor del chat */
+.chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #f0f0f0;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  height: calc(100vh - 100px); /* Altura ajustada para mantener siempre visible el formulario de entrada */
+  overflow: hidden; /* Evitar que el contenido se desborde */
 }
 
-.user-message {
-  background-color:rgba(51, 124, 161, 0.836);
+/* Contenedor de salida de mensajes */
+.chat-output {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #e5ddd5;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex; /* Usar flexbox */
+  flex-direction: column; /* Alinear los mensajes en columna */
+}
+
+/* Formulario de entrada de mensajes */
+.chat-form {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el input y el botón */
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input {
+  flex-grow: 1;
   padding: 8px;
-  border-radius: 10px 0px 15px 10px;
-  margin: 10px 600px;
-  margin-left: 450px;
-  width: 800px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f0f0f0;
 }
 
-.bot-message {
-  background-color: rgb(90, 188, 134);
-  padding: 8px;
-  border-radius: 0px 10px 10px 15px;
-  margin: 10px 10px;
-  width: 1100px;
+.btn-chat {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #875D5E;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.hidden {
-  display: none;
+.btn-chat:hover {
+  background-color: #A28B8C;
+}
+
+/* Estilo para los mensajes */
+.message {
+  display: inline-block;
+  max-width: 60%;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  clear: both;
+  align-self: flex-start;
+}
+
+/* Mensajes del usuario */
+.message-user {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  color: #333;
+  margin-right: 10px;
+  border-bottom-right-radius: 0;
+}
+
+/* Mensajes del bot */
+.message-bot {
+  align-self: flex-start;
+  background-color: #fff;
+  color: #333;
+  margin-left: 10px;
+  border-bottom-left-radius: 0;
+}
+
+/* Mensajes de error */
+.message-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  align-self: flex-start;
+  margin-left: 10px;
+  border-bottom-left-radius: 0;
+}
+
+/* Ajustes para desplazar mensajes */
+.chat-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-output::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
 }
 
 /* Vista error */
@@ -423,6 +518,44 @@ button[data-testid="button-clear"] {
     width: 100%; /* Ancho completo en dispositivos pequeños */
   }
 }
+
+@media (max-width: 768px) {
+  .bebida-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bebida-avatar {
+    margin-bottom: 10px;
+  }
+
+  .bebida-name {
+    font-size: 1.2em;
+  }
+
+  .bebida-short-description {
+    font-size: 0.9em;
+  }
+  .chat-form {
+    flex-direction: column; /* Apila el input y el botón en pantallas pequeñas */
+    align-items: stretch; /* Asegura que el input y el botón ocupen todo el ancho */
+  }
+
+  .chat-input {
+    width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
+    font-size: 14px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    padding: 6px; /* Reduce el padding del input en pantallas pequeñas */
+  }
+
+  .btn-chat {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    font-size: 14px; /* Reduce el tamaño del texto del botón en pantallas pequeñas */
+    padding: 10px; /* Ajusta el padding del botón en pantallas pequeñas */
+    margin-top: 8px; /* Agrega un margen superior para separar el botón del input */
+  }
+}
+
+
 .inp-api{
   width: 600px;
   height: 80px;
