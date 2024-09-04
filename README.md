@@ -70,4 +70,4 @@ Durante las pruebas de usabilidad, identificamos varios problemas que necesitaba
 ## Despliegue en Vercel
 
 Este proyecto fue desplegado utilizando Vercel
-
+https://el-recetario-de-la-bartender-dv-git-8c336e-massiarancs-projects.vercel.app/
